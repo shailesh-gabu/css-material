@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Animation</title>
+    <style>
+        .pulse {
+            height: 80px;
+            width: 400px;
+            background: linear-gradient(rgba(0, 85, 14, 0.863), rgba(130, 199, 65, 0.822));
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 0;
+            right: 0;
+            border-radius: 10px;
+            animation: colorAnimation 8s linear infinite;
+        }
+
+        .pulse h4 {
+            color: white;
+            font-size: 30px;
+            font-style: italic;
+        }
+
+        .pulse::after,
+        .pulse::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgb(109, 211, 109);
+            border-radius: 10px;
+            z-index: -1;
+            transition: all 1s linear;
+            /* opacity: 0.7; */
+        }
+
+        .pulse::before {
+            animation: pulse 2s ease-out infinite;
+        }
+
+        .pulse::after {
+            animation: pulse 2s 1s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            100% {
+                transform: scale(1.1, 1.5);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes colorAnimation {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pulse">
+        <h4>😜😊Mr_Gabu😊😜</h4>
+    </div>
+</body>
+
+</html>

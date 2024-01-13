@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Animation</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        section {
+            height: 100vh;
+            background: rgb(188, 255, 188);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: colorAnimation 8s linear infinite;
+        }
+
+        .pulse {
+            position: relative;
+            height: 100px;
+            width: 400px;
+            /* background: goldenrod; */
+            border-radius: 10px;
+        }
+
+        .pulse span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgb(97, 146, 0);
+            border-radius: inherit;
+            animation: pulseAnimation 8s ease-out infinite;
+            animation-delay: calc(1s * var(--i));
+        }
+
+        .pulse .pulse-content {
+            position: absolute;
+            height: inherit;
+            width: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: rgba(0, 128, 0, 0.24);
+            border-radius: inherit;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        @keyframes pulseAnimation {
+            100% {
+                opacity: 0;
+                transform: scale(3, 6);
+            }
+        }
+
+        @keyframes colorAnimation {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="pulse">
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+
+            <div class="pulse-content">
+                <h3>😜😊Mr_Gabu😊😜</h3>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
